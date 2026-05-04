@@ -1,4 +1,59 @@
 # SpatialEpiBench
+## 0. Environment setup and dependency resolution
+
+The benchmark is tested with **Python 3.10+** on Linux/macOS. (For Python 3.10, use `scipy==1.15.3` from `requirements.txt`.)
+
+### Create and activate a Conda environment
+
+```bash
+conda create -n spatialepibench python=3.10 -y
+conda activate spatialepibench
+python -m pip install --upgrade pip setuptools wheel
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Optional: install a PyTorch build for your hardware first
+
+If you need a CUDA build or a different torch build than the default resolver chooses, install PyTorch first from the official index, then install the rest:
+
+```bash
+# Example (CUDA 12.1)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install -r requirements.txt
+```
+
+### Quick environment verification
+
+```bash
+python -c "import torch; print('torch', torch.__version__, 'cuda?', torch.cuda.is_available())"
+python run_retrain.py --dataset JHUcase --model repeat_last --epochs 1 --device cpu
+```
+
+### Common dependency-resolution fixes
+
+- If pip reports resolver conflicts, re-run with a clean environment and upgraded build tools:
+  ```bash
+  conda deactivate 2>/dev/null || true
+  conda remove -n spatialepibench --all -y
+  conda create -n spatialepibench python=3.10 -y
+  conda activate spatialepibench
+  python -m pip install --upgrade pip setuptools wheel
+  pip install -r requirements.txt
+  ```
+- If a package build fails, confirm system compilers are available (for Linux: `build-essential`, `python3-dev`).
+- If `--device cuda` fails, check that your NVIDIA driver supports the installed CUDA runtime and verify with:
+  ```bash
+  nvidia-smi
+  python -c "import torch; print(torch.cuda.is_available())"
+  ```
+
+---
+
 ## 1. Project layout
 ```text
 SpatialEpiBench/
