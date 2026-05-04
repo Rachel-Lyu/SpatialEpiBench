@@ -1,0 +1,9 @@
+,Australian Capital Territory,New South Wales,Northern Territory,Queensland,South Australia,Tasmania,Victoria,Western Australia
+Australian Capital Territory,0,1,0,0,0,0,0,0
+New South Wales,1,0,0,1,1,0,1,0
+Northern Territory,0,0,0,1,1,0,0,1
+Queensland,0,1,1,0,1,0,0,0
+South Australia,0,1,1,1,0,0,1,1
+Tasmania,0,0,0,0,0,0,0,0
+Victoria,0,1,0,0,1,0,0,0
+Western Australia,0,0,1,0,1,0,0,0

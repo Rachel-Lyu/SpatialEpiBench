@@ -1,0 +1,14 @@
+,Alberta,British Columbia,Manitoba,New Brunswick,Newfoundland and Labrador,Northwest Territories,Nova Scotia,Nunavut,Ontario,Prince Edward Island,Quebec,Saskatchewan,Yukon
+Alberta,0,1,0,0,0,1,0,0,0,0,0,1,0
+British Columbia,1,0,0,0,0,1,0,0,0,0,0,0,1
+Manitoba,0,0,0,0,0,0,0,1,1,0,0,1,0
+New Brunswick,0,0,0,0,0,0,1,0,0,1,1,0,0
+Newfoundland and Labrador,0,0,0,0,0,0,0,0,0,0,1,0,0
+Northwest Territories,1,1,0,0,0,0,0,1,0,0,0,1,1
+Nova Scotia,0,0,0,1,0,0,0,0,0,0,0,0,0
+Nunavut,0,0,1,0,0,1,0,0,0,0,1,0,0
+Ontario,0,0,1,0,0,0,0,0,0,0,1,0,0
+Prince Edward Island,0,0,0,1,0,0,0,0,0,0,0,0,0
+Quebec,0,0,0,1,1,0,0,1,1,0,0,0,0
+Saskatchewan,1,0,1,0,0,1,0,0,0,0,0,0,0
+Yukon,0,1,0,0,0,1,0,0,0,0,0,0,0
