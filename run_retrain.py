@@ -234,7 +234,7 @@ def fix_seed(seed=42):
     os.environ["PYTHONHASHSEED"] = str(seed)
 
 
-def build_splits(dataset_name, lookback=28, horizon=7, train_rate=0.6, val_rate=0.2, permute=False, scale = True):
+def build_splits(dataset_name, lookback=28, horizon=7, train_rate=0.6, val_rate=0.2, permute=False, scale=True):
     scaler = None
     data_df = pd.read_csv(f"rawData/processed/{dataset_name}.csv", index_col = 0)
     data_df.index = pd.to_datetime(data_df.index)
@@ -880,6 +880,14 @@ def add_common_args(parser):
     parser.add_argument("--plot", action="store_true")
     parser.add_argument("--state2plot", default=None)
     parser.add_argument(
+        "--no-scale",
+        action="store_true",
+        help=(
+            "Disable per-node scaling by std of positive observations in build_splits. "
+            "By default scaling is enabled and zeros are preserved."
+        ),
+    )
+    parser.add_argument(
         "--model-kwargs-json",
         default=None,
         help=(
@@ -911,7 +919,7 @@ def main():
     horizon = args.horizon
     lookback = args.lookback
     data_df, adj, splits, tid_s, train_dataset, scaler = build_splits(
-        dataset_name=dataset_name, lookback=lookback, horizon=horizon, train_rate=args.train_rate, val_rate=args.val_rate
+        dataset_name=dataset_name, lookback=lookback, horizon=horizon, train_rate=args.train_rate, val_rate=args.val_rate, scale=not args.no_scale,
     )
     if args.model == "EARTH":
         dtw_matrix = compute_dtw_matrix(train_dataset, dataset_name=dataset_name)

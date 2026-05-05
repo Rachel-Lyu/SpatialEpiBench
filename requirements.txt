@@ -5,3 +5,4 @@ torch-geometric==2.6.1
 einops==0.8.1
 fastdtw
 torchdiffeq
+PyYAML

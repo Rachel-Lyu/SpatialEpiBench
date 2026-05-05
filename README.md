@@ -31,7 +31,7 @@ pip install -r requirements.txt
 
 ```bash
 python -c "import torch; print('torch', torch.__version__, 'cuda?', torch.cuda.is_available())"
-python run_retrain.py --dataset JHUcase --model repeat_last --epochs 1 --device cpu
+python run_retrain.py --dataset JHUcase --model Dlinear --epochs 1 --device cpu
 ```
 
 ### Common dependency-resolution fixes
@@ -108,6 +108,12 @@ horizon    = 7
 train_rate = 0.6
 val_rate   = 0.2
 loss       = mse
+```
+
+By default, `build_splits()` scales each node's positive observations by that node's standard deviation (zeros stay zero). This affects both `y_true` and `y_pred` in output CSVs. To keep raw counts/values: add `--no-scale`
+
+```bash
+python run_retrain.py --dataset JHUcase --model ILI2019 --no-scale
 ```
 
 Run on GPU:
