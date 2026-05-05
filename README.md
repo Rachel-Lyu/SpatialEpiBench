@@ -177,6 +177,7 @@ These arguments are available for all models.
 | `--loss` | `mse` | Loss function. Choices: `mse`, `mse_filtered`. |
 | `--retrain-every` | `90` | Number of target time steps predicted before retraining again. |
 | `--retrain-train-length` | `180` | Number of previous time steps used for each retraining window. |
+| `--no-scale` | off | Disable per-node scaling by std of positive observations (default is scaled with zeros preserved). |
 | `--use-future-ti` | off | Use future time-index information if supported by the model. |
 | `--epi-mode` | `none` | Epidemiological mode. Choices: `none`, `sir_incidence`, `sir_percent`, `ngm`. |
 | `--use-einn` | off | Enable EINN alignment. Requires `--epi-mode sir_incidence`, `--epi-mode sir_percent` or `--epi-mode ngm`. |
